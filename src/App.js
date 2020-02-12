@@ -35,12 +35,15 @@ function App() {
         <div className="time">{seconds}</div>
       </div>
       <div className="buttons">
-        <button className="play-pause" onClick={() => Play()}>
-          <i className="fa fa-play fa-2x" />
-        </button>
-        <button className="play-pause" onClick={() => Pause()}>
-          <i className="fa fa-pause fa-2x" />
-        </button>
+        {!isRunning ? (
+          <button className="play-pause" onClick={() => Play()}>
+            <i className="fa fa-play fa-2x" />
+          </button>
+        ) : (
+          <button className="play-pause" onClick={() => Pause()}>
+            <i className="fa fa-pause fa-2x" />
+          </button>
+        )}
         <button className="reset" onClick={() => Reset()}>
           Reset
         </button>
