@@ -18,6 +18,7 @@ function App() {
   }, [isRunning, intervalId]);
 
   const Reset = () => {
+    setIsRunning(false);
     setSeconds(0);
   };
 
@@ -44,7 +45,7 @@ function App() {
             <i className="fa fa-pause fa-2x" />
           </button>
         )}
-        <button className="reset" onClick={() => Reset()}>
+        <button disabled={!isRunning} className="reset" onClick={() => Reset()}>
           Reset
         </button>
       </div>
