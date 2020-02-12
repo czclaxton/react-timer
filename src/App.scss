@@ -1,7 +1,43 @@
 body {
   margin: 0;
-  background: #282937;
-  font-family: 'Helvetica', 'Helvetica Nueue', sans-serif;
+  background-color: darken(#252b37, 6%);
+  font-family: "Helvetica", "Helvetica Nueue", sans-serif;
+}
+
+@mixin backlight($x, $y, $spread, $size, $colorA, $colorB, $duration) {
+  &:after {
+    position: absolute;
+    content: "";
+    top: $y;
+    left: $x;
+    right: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 50%;
+    transform: scale($size);
+    opacity: 0.3;
+    -webkit-filter: blur($spread);
+    -moz-filter: blur($spread);
+    -ms-filter: blur($spread);
+    filter: blur($spread);
+    background: linear-gradient(270deg, $colorA, $colorB);
+    background-size: 200% 200%;
+    animation: animateGlow $duration ease infinite;
+
+    @keyframes animateGlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  }
 }
 
 button {
@@ -49,10 +85,10 @@ button {
 
 @keyframes abberation {
   from {
-    box-shadow: 0 0 0 0 #CB2918, 0 0 0 0 #56719A;
+    box-shadow: 0 0 0 0 #0fffc1, 0 0 0 0 #7e0fff;
   }
   to {
-    box-shadow: 0.25rem 0.125rem 0 0 #CB2918, -0.25rem -0.125rem 0 0 #56719A;
+    box-shadow: 0.25rem 0.125rem 0 0 #0fffc1, -0.25rem -0.125rem 0 0 #7e0fff;
   }
 }
 
@@ -66,7 +102,7 @@ button {
 }
 
 .time {
-  padding-top: 1rem; // to make it look centered 
+  padding-top: 1rem; // to make it look centered
   font-size: 5rem;
   position: absolute;
   width: 100%;
@@ -74,6 +110,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: textColor 10s ease infinite;
+  @include backlight(0, 1vw, 10vw, 1.25, #0fffc1, #7e0fff, 10s);
 }
 
 .buttons {
@@ -93,13 +131,14 @@ button {
     margin: 0;
     border: none;
     border-radius: 50%;
-    background: #6C7CB3;
+    background: #6c7cb3;
     cursor: pointer;
     transition: background 0.3s;
     color: white;
+    transition: hover 0.3s;
 
     &:hover {
-      background: darken(#6C7CB3, 10%);
+      background: darken(#6c7cb3, 10%);
     }
   }
 
@@ -117,5 +156,17 @@ button {
       cursor: not-allowed;
       opacity: 0.6;
     }
+  }
+}
+
+@keyframes textColor {
+  0% {
+    color: #7e0fff;
+  }
+  50% {
+    color: #0fffc1;
+  }
+  100% {
+    color: #7e0fff;
   }
 }
