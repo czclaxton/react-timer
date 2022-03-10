@@ -32,11 +32,3 @@ We will be learning about how `useState` modifies values, how `useEffect` allows
 ## Install and Use
 
 To run and edit the project, clone the project to your computer, `cd` into the project directory and follow the instructions below for your javascript pacakge manager of choice.
-
-### yarn
-
-In the project directory run `yarn install` to install the depenencies, and `yarn start` to star the development server. It should open a browser tab to `localhost:3000`.
-
-### npm
-
-In the project directory run `npm install` to install the depenencies, and `npm start` to star the development server. It should open a browser tab to `localhost:3000`.
