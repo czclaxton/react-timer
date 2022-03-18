@@ -31,4 +31,4 @@ We will be learning about how `useState` modifies values, how `useEffect` allows
 
 ## Install and Use
 
-To run and edit the project, clone the project to your computer, `cd` into the project directory and follow the instructions below for your javascript pacakge manager of choice.
+To run and edit the project, clone the project to your computer, `cd` into the project directory and follow the instructions below for your javascript pacakge manager of choice
